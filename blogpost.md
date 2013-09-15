@@ -238,7 +238,7 @@ keypress # Use old event
 The final coffeescript source can be seen as a gist: https://gist.github.com/mikaelbr/6570293
 A demo can be found on heroku http://frppiano.herokuapps.com
 
-The full source code is available as a Github repo: http://github.com/mikaelbre/frp-piano
+The full source code is available as a Github repo: https://github.com/mikaelbr/frp-piano
 
 
 ## More Detailed Reading
