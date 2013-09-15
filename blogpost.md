@@ -40,7 +40,7 @@ we can build complex structures and functionality from lesser complex building
 blocks.
 
 The reactive nature of FRP, is perfect for doing UI interaction and/or 
-animation, be it input from form fields, clicks, key press,
+animation, be it input from form fields, clicks, key presses,
 scrolling or what have you. We'll see more about this when implementing the
 collaborative piano.
 
@@ -114,7 +114,7 @@ clicks = $("#piano") # Fetch the piano-element
 
 As a result, we now have the event ```clicks```, which now contains a stream
 of piano keys. We need to use this information some how. We can either add
-subscribers (as with promises), or we can set a action to do on a value. For
+subscribers (as with promises), or we can set an action to do on a value. For
 our purpose, we only need to do an action on a new value.
 
 ```coffeescript
@@ -199,7 +199,7 @@ notes = clicks
 ```
 
 Now we can listen to other playing, but not emit what we are playing.
-We need to emit keys from clicks and key press, but not from the server.
+We need to emit keys from clicks and key presses, but not from the server.
 
 ```coffeescript
 notes = clicks
