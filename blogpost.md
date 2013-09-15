@@ -46,6 +46,8 @@ collaborative piano.
 
 ## Implementing the Piano
 
+![Screenshot of the Piano](screenshot.png "Piano Screenshot")
+
 The goal is to make a piano. The piano should make sound on mouse clicks and 
 when the keyboard keys ```1``` through ```8``` is pressed. In addition, we 
 will broadcast to other piano players what key we played. To keep it simple 
