@@ -1,0 +1,16 @@
+{
+  "name": "FRP-Piano",
+  "version": "0.0.1",
+  "description": "A naïve collaborative piano using functional reactive programming",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Mikael Brevik <mikaelbre@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "~0.9.16",
+    "express": "~3.4.0"
+  }
+}
