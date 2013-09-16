@@ -57,7 +57,10 @@ We will be implementing a piano using CoffeeScript on the client side, and
 a short server side implementation for handling WebSockets in Node.JS. 
 
 For this example, [bacon.js](https://github.com/baconjs/bacon.js) will be used, 
-but we could just as easily use something like [RxJS](https://github.com/Reactive-Extensions/RxJS).
+but we could just as easily use something like [RxJS](https://github.com/Reactive-Extensions/RxJS). 
+RxJS a set of reactive extensions for javascript. Almost like having LINQ. I'd
+say that Bacon.js is more aimed at FRP, as it has a distinction between
+behaviours (Properties) and events, and RxJS has only the concept of Observables.
 
 In Bacon the behaviours are called Properties and events are called EventStreams.
 Bacon has implementations for doing map, filter, merge, triggering actions, 
