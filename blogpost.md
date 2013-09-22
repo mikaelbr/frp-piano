@@ -73,31 +73,7 @@ available as a gist here: https://gist.github.com/mikaelbr/6569804. The usage
 looks like this ```player(key)``` where the key can be A2, E3, etc.
 
 The markup is simple enough: an un-ordered list setting the piano keys as
-data-note attributes, as shown here:
-
-```html
-<div id="p-wrapper">
-  <ul id="piano">
-    <li><div class="anchor clickable" data-note="A2"></div></li>
-    <li><div class="anchor clickable" data-note="B2"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="C3"></div></li>
-    <li><div class="anchor clickable" data-note="D3"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="E3"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="F3"></div></li>
-    <li><div class="anchor clickable" data-note="G3"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="A3"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="B3"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="C4"></div></li>
-    <li><div class="anchor clickable" data-note="D4"></div></li>
-    <li><div class="anchor clickable" data-note="E4"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="F4"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="G4"></div></li>
-    <li><div class="anchor clickable" data-note="A4"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="B4"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="C5"></div><span></span></li>
-  </ul>
-</div>
-```
+data-note attributes. Full markup of the piano is shown in [this gist](https://gist.github.com/mikaelbr/6661872).
 
 I like reading code as a learning tool, so for this blog post, we'll just see the
 code with annotations describing the action taken. We'll take
