@@ -18,18 +18,24 @@ Conal Elliot and Paul Hudak in 1997 called FRAN. FRAN was a collection of
 functions and data types for composing interactive animations [1].
 
 In FRP we operate with two different terms; behaviours and events.
-A behaviour is a continuous set of values, like a mouse movement or time,
-and events are sequences of discrete values such as clicks, keystrokes or 
-web socket emits. Behaviours will always have a value, unlike events.
-
-[Juha Paananen](https://twitter.com/raimohanska) (of 
+A behaviour is a continuous set of values, like a mouse movement or seconds 
+over time. [Juha Paananen](https://twitter.com/raimohanska) (of 
 [bacon.js](https://github.com/baconjs/bacon.js)) described FRP using an 
 analogy to spreadsheets: In traditional programming if we define 
 ```a = b + c```, ```a``` will always be the sum of ```b``` 
 and ```c``` in that given time, but in spreadsheets, if we have 
 ```a = b + c``` and either ```b``` or ```c``` changes, ```a``` will 
-change accordingly. In this example, ```b```, ```c``` and the sum 
-would be behaviours.
+change accordingly. In this example, ```b```, ```c``` and the ```a``` 
+would be behaviours. A behaviour signal will always have a value, 
+unlike its counterpart events.
+
+Events are sequences of discrete values over time such as clicks, keystrokes or 
+web socket emits. In between the discrete values, the event stream has no value set, 
+but with each occurrence, a given time and value is set. We can 
+transform an event stream to a behaviour, by holding on to the most recent value.
+This way, the event stream would have a value at every given time, as with a 
+behaviour. We'll see more about events when implementing the collaborative
+piano.
 
 FRP lets us use map and filter on event streams and behaviour, 
 just like we would on regular lists. Using functional programming techniques
