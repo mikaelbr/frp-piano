@@ -52,7 +52,7 @@ collaborative piano.
 
 ## Implementing the Piano
 
-![Screenshot of the Piano](screenshot.png "Piano Screenshot")
+![Screenshot of the Piano](https://github.com/mikaelbr/frp-piano/raw/master/screenshot.png "Piano Screenshot")
 
 The goal is to make a piano. The piano should make sound on mouse clicks and 
 when the keyboard keys ```1``` through ```8``` is pressed. In addition, we 
@@ -250,16 +250,23 @@ keypress
 # Final Result
 
 The final CoffeeScript source code can be viewed as a gist: https://gist.github.com/mikaelbr/6570293
+
 A demo appliation is hosted on heroku http://frppiano.herokuapp.com/
 
 The full source code is available as a Github repo: https://github.com/mikaelbr/frp-piano
 
+---
 
 ## Further Reading
 
 1. A tutorial in FRAN by Conel Elliot: http://conal.net/fran/tutorial.htm
 2. Readme of Bacon.js: https://github.com/baconjs/bacon.js
-3. FrTime: Funtional Reative Programming in PLT Sheme: ftp://ftp.cs.brown.edu/pub/techreports/03/cs03-20.pdf
+3. FrTime: Funtional Reative Programming in PLT Sheme: [ftp://ftp.cs.brown.edu/pub/techreports/03/cs03-20.pdf](ftp://ftp.cs.brown.edu/pub/techreports/03/cs03-20.pdf)
 
 
 [1]: http://conal.net/papers/icfp97/icfp97.pdf
+
+
+## Thanks
+
+Thanks to Stian Veum Møllersen and Øyvind Selmer for reviewing and giving invaluable tips.
