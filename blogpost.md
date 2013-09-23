@@ -12,14 +12,14 @@ potentially complex and very unstructured and hard to read.
 Functional Reactive Programming (FRP) is a programming paradigm combining
 functional and reactive programming. By using FRP one can use functional
 programming _reacting_ on either continuous or discrete signals in 
-sequence. This enables us to be declarative rather than imperative. FRP is not a new concept, 
-and as far as I can tell, it stems from a system developed by 
+sequence. This enables us to be declarative rather than imperative. FRP is not 
+a new concept, and as far as I can tell, it stems from a system developed by 
 Conal Elliot and Paul Hudak in 1997 called FRAN. FRAN was a collection of 
 functions and data types for composing interactive animations [1].
 
 In FRP we operate with two different terms; _behaviours_ and _events_.
-A behaviour represent a value that varies over continuous time, like a mouse movement or seconds 
-over time. [Juha Paananen](https://twitter.com/raimohanska) (of 
+A behaviour represent a value that varies over continuous time, like a 
+mouse movement or seconds over time. [Juha Paananen](https://twitter.com/raimohanska) (of 
 [bacon.js](https://github.com/baconjs/bacon.js)) described FRP using an 
 analogy to spreadsheets: In traditional programming if we define 
 ```a = b + c```, ```a``` will always be the sum of ```b``` 
@@ -30,12 +30,12 @@ would be behaviours. A behaviour, or signal, will always have a value,
 unlike its counterpart events.
 
 Events are sequences of discrete values over time such as clicks, keystrokes or 
-web socket emits. The concept of events is most often represented as a stream. In between the discrete values, the event has no value set. 
-When an event occurs, a given time and value is set. 
-An event can be transformed to a behaviour by holding on to the most recent value.
-This way, the event would have a value at every given time, as with a 
-behaviour. We'll see some examples of events when implementing the collaborative
-piano.
+web socket emits. The concept of events is most often represented as a stream. 
+In between the discrete values, the event has no value set. When an event occurs, 
+a given time and value is set. An event can be transformed to a behaviour by 
+holding on to the most recent value. This way, the event would have a value at 
+every given time, as with a behaviour. We'll see some examples of events when 
+implementing the collaborative piano.
 
 FRP enables us to use map and filter on events and behaviours, 
 just like we could do with regular sequences. Using functional programming techniques
@@ -65,7 +65,7 @@ a short server side implementation for handling WebSockets in Node.JS.
 For this example we will use [bacon.js](https://github.com/baconjs/bacon.js). 
 We could just as easily have used something like [RxJS](https://github.com/Reactive-Extensions/RxJS), 
 which is a set of reactive extensions for javascript. Almost like having LINQ. But we will go for
- Bacon.jsk, as it is more aimed at FRP, having a distinction between
+ Bacon.js, as it is more aimed at FRP, having a distinction between
 behaviours and events, whereas RxJS only has the concept of _Observables_.
 
 In Bacon the behaviours are called Properties and events are called EventStreams.
@@ -199,8 +199,10 @@ notes = clicks
   .onValue(player)
 ```
 
-We can now listen to what other people are playing, but we can not yet broadcast what we are playing.
-We need to emit piano keys from clicks and key presses, but not the piano keys we received from the server. To achieve this we can tap into the composition and call ```doAction``` before merging with the server event stream.
+We can now listen to what other people are playing, but we can not yet broadcast what we 
+are playing. We need to emit piano keys from clicks and key presses, but not the piano keys 
+we received from the server. To achieve this we can tap into the composition and call 
+```doAction``` before merging with the server event stream.
 
 ```coffeescript
 notes = clicks
@@ -224,8 +226,9 @@ or what piano keys other users are pressing. To achieve this we need to set a pi
 ### Setting Piano Keys As Active
 
 One big advantage with FRP is immutability. This means that each map, filter, or 
-other transformations always returns a new event stream or behaviour. This means that we can use ```keypress``` and ```server```
-again, without causing side effects in other parts of the program. Lets add the active state:
+other transformations always returns a new event stream or behaviour. This means that we can 
+use ```keypress``` and ```server``` again, without causing side effects in other parts of the 
+program. Lets add the active state:
 
 ```coffeescript
 # Indicate tangent click on keypress/server
