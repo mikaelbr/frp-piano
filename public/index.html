@@ -2,47 +2,65 @@
 <html>
 <head>
   <title>FRP Piano</title>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 <audio id="sound-A2" src="samples/A2.ogg" preload="auto"></audio>
+<audio id="sound-Bb2" src="samples/Bb2.ogg" preload="auto"></audio>
 <audio id="sound-B2" src="samples/B2.ogg" preload="auto"></audio>
+<audio id="sound-Ab3" src="samples/Ab3.ogg" preload="auto"></audio>
 <audio id="sound-A3" src="samples/A3.ogg" preload="auto"></audio>
+<audio id="sound-Bb3" src="samples/Bb3.ogg" preload="auto"></audio>
 <audio id="sound-B3" src="samples/B3.ogg" preload="auto"></audio>
 <audio id="sound-C3" src="samples/C3.ogg" preload="auto"></audio>
+<audio id="sound-Db3" src="samples/Db3.ogg" preload="auto"></audio>
 <audio id="sound-D3" src="samples/D3.ogg" preload="auto"></audio>
+<audio id="sound-Eb3" src="samples/Eb3.ogg" preload="auto"></audio>
 <audio id="sound-E3" src="samples/E3.ogg" preload="auto"></audio>
 <audio id="sound-F3" src="samples/F3.ogg" preload="auto"></audio>
+<audio id="sound-Gb3" src="samples/Gb3.ogg" preload="auto"></audio>
 <audio id="sound-G3" src="samples/G3.ogg" preload="auto"></audio>
+<audio id="sound-Ab4" src="samples/Ab4.ogg" preload="auto"></audio>
 <audio id="sound-A4" src="samples/A4.ogg" preload="auto"></audio>
+<audio id="sound-Bb4" src="samples/Bb4.ogg" preload="auto"></audio>
 <audio id="sound-B4" src="samples/B4.ogg" preload="auto"></audio>
 <audio id="sound-C4" src="samples/C4.ogg" preload="auto"></audio>
+<audio id="sound-Db4" src="samples/Db4.ogg" preload="auto"></audio>
 <audio id="sound-D4" src="samples/D4.ogg" preload="auto"></audio>
+<audio id="sound-Eb4" src="samples/Eb4.ogg" preload="auto"></audio>
 <audio id="sound-E4" src="samples/E4.ogg" preload="auto"></audio>
 <audio id="sound-F4" src="samples/F4.ogg" preload="auto"></audio>
+<audio id="sound-Gb4" src="samples/Gb4.ogg" preload="auto"></audio>
 <audio id="sound-G4" src="samples/G4.ogg" preload="auto"></audio>
 <audio id="sound-C5" src="samples/C5.ogg" preload="auto"></audio>
+
+<header>
+    <h1>Demo: Making a Collaborative Piano Using Functional Reactive Programming (FRP)</h1>
+    <p>This is a demo for a <a href="http://open.bekk.no/#!making-a-collaborative-piano-using-functional-reactive-programming-frp">blog post on doing simple functional reactive programming</a>.</p>
+    <p>This example and the blog post can be found <a href="https://github.com/mikaelbr/frp-piano">on Github</a></p>.
+</header>
 
 <div id="p-wrapper">
   <ul id="piano">
     <li><div class="anchor clickable" data-note="A2"></div></li>
-    <li><div class="anchor clickable" data-note="B2"></div><span></span></li>
+    <li><div class="anchor clickable" data-note="B2"></div><span class="clickable" data-note="Bb2"></span></li>
     <li><div class="anchor clickable" data-note="C3"></div></li>
-    <li><div class="anchor clickable" data-note="D3"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="E3"></div><span></span></li>
+    <li><div class="anchor clickable" data-note="D3"></div><span class="clickable" data-note="Db3"></span></li>
+    <li><div class="anchor clickable" data-note="E3"></div><span class="clickable" data-note="Eb3"></span></li>
     <li><div class="anchor clickable" data-note="F3"></div></li>
-    <li><div class="anchor clickable" data-note="G3"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="A3"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="B3"></div><span></span></li>
+    <li><div class="anchor clickable" data-note="G3"></div><span class="clickable" data-note="Gb3"></span></li>
+    <li><div class="anchor clickable" data-note="A3"></div><span class="clickable" data-note="Ab3"></span></li>
+    <li><div class="anchor clickable" data-note="B3"></div><span class="clickable" data-note="Bb3"></span></li>
     <li><div class="anchor clickable" data-note="C4"></div></li>
-    <li><div class="anchor clickable" data-note="D4"></div></li>
-    <li><div class="anchor clickable" data-note="E4"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="F4"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="G4"></div></li>
-    <li><div class="anchor clickable" data-note="A4"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="B4"></div><span></span></li>
-    <li><div class="anchor clickable" data-note="C5"></div><span></span></li>
+    <li><div class="anchor clickable" data-note="D4"></div><span class="clickable" data-note="Db4"></span></li>
+    <li><div class="anchor clickable" data-note="E4"></div><span class="clickable" data-note="Eb4"></span></li>
+    <li><div class="anchor clickable" data-note="F4"></div></li>
+    <li><div class="anchor clickable" data-note="G4"></div><span class="clickable" data-note="Gb4"></span></li>
+    <li><div class="anchor clickable" data-note="A4"></div><span class="clickable" data-note="Ab4"></span></li>
+    <li><div class="anchor clickable" data-note="B4"></div><span class="clickable" data-note="Bb4"></span></li>
+    <li><div class="anchor clickable" data-note="C5"></div></li>
   </ul>
 </div>
 

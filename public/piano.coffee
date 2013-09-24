@@ -5,11 +5,29 @@
 
 socket = io.connect()
 scale = [
-    'A2', 'B2', 'C3', 'D3', 'E3', 'F3', 'G3',
-    'A3', 'B3', 'C4', 'D4', 'E4', 'F4', 'G4',
-    'A4', 'B4', 'C5'
+    'A2', 'Bb2', 'B2', 'C3', 'Db3', 'D3', 'Eb3', 'E3', 'F3', 'Gb3', 'G3', 'Ab3',
+    'A3', 'Bb3', 'B3', 'C4', 'Db4', 'D4', 'Eb4', 'E4', 'F4', 'Gb4', 'G4', 'Ab4',
+    'A4', 'Bb4', 'B4', 'C5'
   ]
 
+mapping =
+  113: 'A2'
+  49: 'Bb2'
+  119: 'B2'
+  101: 'C3'
+  52: 'Db3'
+  53: 'Eb3'
+  114: 'D3'
+  116: 'E3'
+  55: 'Gb3'
+  56: 'Ab3'
+  57: 'Bb3'
+  121: 'F3'
+  117: 'G3'
+  105: 'A3'
+  111: 'B3'
+  112: 'C4'
+  
 # Create event streams for clicks on the piano tuts.
 clicks = $("#piano")
   .asEventStream("click", ".clickable") # Attach to click event as stream
@@ -21,10 +39,11 @@ clicks = $("#piano")
 keypress = $(document)
   .asEventStream("keypress") # Attach to keypress event as stream
   .map(".keyCode") # Extract keyCode
-  .filter (code) ->  # Remove all signals that's not the keys 1 thorugh 8
-    code >= 49 && code <= 56
   .map (code) -> # translate to piano keys
-    scale[code - 47]
+    mapping[code]
+  .filter (key) ->  # Remove all signals that's not the keys 1 thorugh 8
+    key isnt undefined
+  
 
 # Add collaborative support
 server = Bacon

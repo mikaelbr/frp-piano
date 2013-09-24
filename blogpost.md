@@ -123,12 +123,12 @@ keypress = $(document)
   .asEventStream("keypress")
   # Extract keyCode
   .map(".keyCode")
-  # Remove all signals that's not the keys 1 through 8
-  .filter (code) ->
-    code >= 49 && code <= 56
-  # translate to piano keys
+  # translate to piano keys, using mapping (object with codes -> piano keys)
   .map (code) ->
-    scale[code - 47]
+    mapping[code]
+  # Remove all signals that's mapped to keys
+  .filter (key) ->
+    key isnt undefined
 ```
 
 The result, will as with the ```clicks``` event stream, is a stream of keypress events mapped piano keys.
@@ -256,6 +256,10 @@ A demo appliation is hosted on heroku http://frppiano.herokuapp.com/
 The full source code is available as a Github repo: https://github.com/mikaelbr/frp-piano
 
 ---
+
+## Updates
+
+24/09: The example has been updated to also implement black keys.
 
 ## Further Reading
 
