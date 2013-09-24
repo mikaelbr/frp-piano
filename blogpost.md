@@ -126,7 +126,7 @@ keypress = $(document)
   # translate to piano keys, using mapping (object with codes -> piano keys)
   .map (code) ->
     mapping[code]
-  # Remove all signals that's mapped to keys
+  # Remove all signals that's not mapped to keys
   .filter (key) ->
     key isnt undefined
 ```

@@ -41,7 +41,7 @@ keypress = $(document)
   .map(".keyCode") # Extract keyCode
   .map (code) -> # translate to piano keys
     mapping[code]
-  .filter (key) ->  # Remove all signals that's not the keys 1 thorugh 8
+  .filter (key) ->  # Remove all signals that's not mapped to keys
     key isnt undefined
   
 
