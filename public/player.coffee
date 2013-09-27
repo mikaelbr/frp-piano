@@ -39,6 +39,12 @@ fade = (key) ->
     clearInterval(intervals[key])
     intervals[key] = setInterval stepfade, 5
 
+resetTime = (audio) ->
+  try
+    audio.currentTime = 0
+  catch e
+    true
+
 window.player = (key) ->
   audio = sound key
   clearTimeout depressed[key]
@@ -47,12 +53,13 @@ window.player = (key) ->
     audio.pause()
     audio.volume = 1.0
 
-    if audio.readyState >= 2
-      audio.currentTime = 0
+    if audio.readyState >= 2 || audio.readyState == 0
+      # 0 = unknown state, always 0 on iOS
+      resetTime audio
       audio.play()
 
     fade key
     pause = ->
       audio.pause()
-      audio.currentTime = 0
+      resetTime audio
     depressed[key] = setTimeout pause, 1000

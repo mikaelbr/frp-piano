@@ -1,4 +1,4 @@
-# An example of Functional Reactive Programming, by implementing a 
+# An example of Functional Reactive Programming, by implementing a
 # simple collaborative piano.
 
 # By Mikael Brevik <@mikaelbr>
@@ -27,13 +27,21 @@ mapping =
   105: 'A3'
   111: 'B3'
   112: 'C4'
-  
+
+getNote = (e) ->
+  $(e.currentTarget).attr "data-note"
+
 # Create event streams for clicks on the piano tuts.
 clicks = $("#piano")
   .asEventStream("click", ".clickable") # Attach to click event as stream
   .doAction(".preventDefault") # Prevent default on click
-  .map (e) -> # Map events and retrieve the data-note
-    $(e.currentTarget).attr "data-note"
+  .map(getNote) # Map events and retrieve the data-note
+
+# Create event streams for touches on the piano tuts.
+touches = $("#piano")
+  .asEventStream("touchend", ".clickable") # Attach to touchend event as stream
+  .doAction(".preventDefault") # Prevent default on touch
+  .map(getNote) # Map events and retrieve the data-note
 
 # Add support for using the keyboard (one scale)
 keypress = $(document)
@@ -43,7 +51,6 @@ keypress = $(document)
     mapping[code]
   .filter (key) ->  # Remove all signals that's not mapped to keys
     key isnt undefined
-  
 
 # Add collaborative support
 server = Bacon
@@ -54,11 +61,12 @@ server = Bacon
 # Merge and play sound
 notes = clicks
   .merge(keypress) # Merge clicks and key presses
+  .merge(touches) # And touches
   .doAction (data) -> # Broadcast what key is playing
-    socket.emit "note", data 
+    socket.emit "note", data
   .merge(server) # Concat notes from other clients
   .doAction(player) # play all notes from all events
-  .onValue (data) -> 
+  .onValue (data) ->
     console.log "Playing:", data
 
 # Indicate tangent click on keypress/server
@@ -66,8 +74,8 @@ keypress # Use old event
   .merge(server) # merge server event
   .map (key) -> # Convert keys to jQuery objects of tangent
     $("[data-note='" + key + "']")
-  .doAction (el) -> 
+  .doAction (el) ->
     el.addClass "active"
   .delay(200)  # wait for 200 ms before moving on
-  .onValue (el) -> 
+  .onValue (el) ->
     el.removeClass "active"
