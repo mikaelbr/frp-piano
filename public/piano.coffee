@@ -40,6 +40,7 @@ clicks = $("#piano")
 # Create event streams for touches on the piano tuts.
 touches = $("#piano")
   .asEventStream("touchend", ".clickable") # Attach to touchend event as stream
+  .doAction(".preventDefault") # Prevent default on touch
   .map(getNote) # Map events and retrieve the data-note
 
 # Add support for using the keyboard (one scale)
