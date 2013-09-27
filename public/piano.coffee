@@ -28,12 +28,19 @@ mapping =
   111: 'B3'
   112: 'C4'
 
+getNote = (e) ->
+  $(e.currentTarget).attr "data-note"
+
 # Create event streams for clicks on the piano tuts.
 clicks = $("#piano")
   .asEventStream("click", ".clickable") # Attach to click event as stream
   .doAction(".preventDefault") # Prevent default on click
-  .map (e) -> # Map events and retrieve the data-note
-    $(e.currentTarget).attr "data-note"
+  .map(getNote) # Map events and retrieve the data-note
+
+# Create event streams for touches on the piano tuts.
+touches = $("#piano")
+  .asEventStream("touchend", ".clickable") # Attach to touchend event as stream
+  .map(getNote) # Map events and retrieve the data-note
 
 # Add support for using the keyboard (one scale)
 keypress = $(document)
@@ -53,6 +60,7 @@ server = Bacon
 # Merge and play sound
 notes = clicks
   .merge(keypress) # Merge clicks and key presses
+  .merge(touches) # And touches
   .doAction (data) -> # Broadcast what key is playing
     socket.emit "note", data
   .merge(server) # Concat notes from other clients
